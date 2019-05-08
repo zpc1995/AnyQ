@@ -104,6 +104,8 @@ int PaddleSimilarity::compute_similarity(const AnalysisResult& analysis_res, Ran
             continue;
         }
         const std::vector<analysis_token_t>& c_token = candidates[i].match_info.tokens_basic;
+        // 清空
+        cand_ids.clear();
         trans_term_to_id(term2id_kv, c_token, cand_ids);
         if (0 == cand_ids.size()){
             candidates[i].features.push_back(0.0);
